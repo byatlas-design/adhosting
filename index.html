@@ -3,18 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DPA Ad 160x600</title>
+    <title>DPA Ad 300x250</title>
     <link rel="stylesheet" href="carousel-ads.css">
 
     <!-- TradeDesk Pixel -->
     <script src="https://js.adsystem.com/px.js"></script>
     <script>
-    window.ttd_dom_ready = function() {
-        if (typeof TTDUniversalPixelApi !== 'undefined') {
-            var universalPixelApi = new TTDUniversalPixelApi();
-            universalPixelApi.init("t9yh63f", ["scvvpdr"], "https://insight.adsrvr.org/track/up");
+    (function() {
+        function initTTD() {
+            if (typeof TTDUniversalPixelApi !== 'undefined') {
+                var universalPixelApi = new TTDUniversalPixelApi();
+                universalPixelApi.init("t9yh63f", ["scvvpdr"], "https://insight.adsrvr.org/track/up");
+            }
         }
-    }
+        
+        // Try multiple ways to ensure pixel loads
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initTTD);
+        } else {
+            initTTD();
+        }
+        
+        // Fallback for ttd_dom_ready
+        window.ttd_dom_ready = initTTD;
+    })();
     </script>
 </head>
 <body>
@@ -23,7 +35,7 @@
     <script src="carousel.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            dpaCarousel = new DPACarousel('dpa-ad-container', '160x600');
+            dpaCarousel = new DPACarousel('dpa-ad-container', '300x250');
         });
     </script>
 </body>
