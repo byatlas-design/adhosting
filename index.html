@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DPA Ad 160x600</title>
+    <link rel="stylesheet" href="carousel-ads.css">
+
+    <!-- TradeDesk Pixel -->
+    <script src="https://js.adsystem.com/px.js"></script>
+    <script>
+    window.ttd_dom_ready = function() {
+        if (typeof TTDUniversalPixelApi !== 'undefined') {
+            var universalPixelApi = new TTDUniversalPixelApi();
+            universalPixelApi.init("t9yh63f", ["scvvpdr"], "https://insight.adsrvr.org/track/up");
+        }
+    }
+    </script>
+</head>
+<body>
+    <div id="dpa-ad-container"></div>
+    
+    <script src="carousel.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            dpaCarousel = new DPACarousel('dpa-ad-container', '160x600');
+        });
+    </script>
+</body>
+</html>
